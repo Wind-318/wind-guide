@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package protobuf_data;
+option go_package = "/protobuf_data";
+
+message DiscoveryRequest {
+    string service_name = 1;
+    string version = 2;
+    string unique_id = 3;
+    string caller_service_name = 4;
+    string caller_service_version = 5;
+    string caller_unique_id = 6;
+    string caller_service_addr = 7;
+    string caller_service_port = 8;
+}
+
+// protoc --go_out=. .\protobuf_data\*.proto

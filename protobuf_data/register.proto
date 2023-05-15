@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+package protobuf_data;
+option go_package = "/protobuf_data";
+
+message RegisterRequest {
+    string service_id = 1;
+    string service_name = 2;
+    string service_addr = 3;
+    string service_port = 4;
+    string service_version = 5;
+    string unique_id = 6;
+    string health_check_url = 7;
+    int64 usage_count = 8;
+}
+
+message RegisterResponse {
+    string code = 1;
+    string message = 2;
+}
+
+// protoc --go_out=. .\protobuf_data\*.proto

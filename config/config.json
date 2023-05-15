@@ -1,0 +1,30 @@
+{
+    "server": {
+        "id": "0",
+        "name": "wind-guide",
+        "host": "0.0.0.0",
+        "port": 7001,
+        "heartbeat_interval": 30,
+        "heartbeat_timeout": 5,
+        "enable_health_check": false
+    },
+    "logging": {
+        "level": "info",
+        "file_path": "logs/log.log",
+        "max_size": 500,
+        "max_backups": 3,
+        "max_age": 7,
+        "compress": true,
+        "calldepth": 2
+    },
+    "routes": [
+        {
+            "path": "/discovery-service",
+            "handler": "controllers.RegisterService"
+        },
+        {
+            "path": "/register-service",
+            "handler": "controllers.DiscoveryService"
+        }
+    ]
+}
