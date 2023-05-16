@@ -1,0 +1,18 @@
+name: Docker Build and Run
+on: [push, pull_request]
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  build-and-run: 
+    runs-on: ubuntu-latest # or any other OS
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3.3.0
+
+    - name: Build Docker Image
+      run: docker build -t wind-guide .
+
+    - name: Run Docker Container
+      run: docker run -d -v /root/logs/wind_guide:/wind_guide/logs -p 7001:7001 --name wind-guide-0 wind-guide
