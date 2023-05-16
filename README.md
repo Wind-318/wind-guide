@@ -1,6 +1,8 @@
 # Wind Guide
 A simple service registry and discovery center written by ARPC.
 
+[![LICENCE](https://img.shields.io/github/license/Wind-318/wind-guide)](./LICENSE) [![build](https://img.shields.io/github/actions/workflow/status/Wind-318/wind-guide/build.yml)](https://github.com/Wind-318/wind-guide/actions)
+
 ## API Documentaion
 
 ### Register Service
