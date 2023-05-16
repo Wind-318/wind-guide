@@ -1,3 +1,4 @@
+// Package services implements some common functions.
 package services
 
 import (

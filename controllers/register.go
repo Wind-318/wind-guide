@@ -6,6 +6,7 @@
 // Use of this source code is governed by a MIT license
 // that can be found in the LICENSE file.
 
+// Package controllers is a controller package.
 package controllers
 
 import (

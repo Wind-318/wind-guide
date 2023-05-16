@@ -1,7 +1,7 @@
 # Wind Guide
 A simple service registry and discovery center written by ARPC.
 
-[![LICENCE](https://img.shields.io/github/license/Wind-318/wind-guide)](./LICENSE) [![build](https://img.shields.io/github/actions/workflow/status/Wind-318/wind-guide/build.yml)](https://github.com/Wind-318/wind-guide/actions)
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/6a4dbf4480ce499f91374b622ef289cc)](https://app.codacy.com/gh/Wind-318/wind-guide/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_grade) [![LICENCE](https://img.shields.io/github/license/Wind-318/wind-guide)](./LICENSE) [![workflow](https://img.shields.io/github/actions/workflow/status/Wind-318/wind-guide/build.yml)](https://github.com/Wind-318/wind-guide/actions)
 
 ## API Documentaion
 

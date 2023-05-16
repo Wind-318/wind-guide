@@ -1,3 +1,4 @@
+// Package main listens on the port and handles the request.
 package main
 
 import (

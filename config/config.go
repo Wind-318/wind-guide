@@ -1,3 +1,4 @@
+// Package config implements the config file reading and service health check.
 package config
 
 import (
@@ -15,16 +16,21 @@ import (
 )
 
 var (
+	// ConfigSettings is the global config settings.
 	ConfigSettings *Config
-	LocalCache     *ServiceData
-	configPath     = "config/config.json"
+	// LocalCache is the local cache of service information.
+	LocalCache *ServiceData
+	// configPath is the path of config file.
+	configPath = "config/config.json"
 )
 
+// ServiceData is the local cache of service information.
 type ServiceData struct {
 	Infos map[string]map[string]*protobuf_data.RegisterRequest `json:"infos"`
 	Mutex *sync.RWMutex                                        `json:"mutex"`
 }
 
+// ServerConfig is the config of server.
 type ServerConfig struct {
 	ID                string `json:"id"`
 	Name              string `json:"name"`
@@ -35,6 +41,7 @@ type ServerConfig struct {
 	EnableHealthCheck bool   `json:"enable_health_check"`
 }
 
+// LoggingConfig is the config of logging.
 type LoggingConfig struct {
 	Level     string `json:"level"`
 	FilePath  string `json:"file_path"`
@@ -45,18 +52,20 @@ type LoggingConfig struct {
 	CallDepth int    `json:"call_depth"`
 }
 
+// RoutesConfig is the config of routes.
 type RoutesConfig struct {
 	Path    string `json:"path"`
 	Handler string `json:"handler"`
 }
 
+// Config is the config of this service.
 type Config struct {
 	Server  ServerConfig  `json:"server"`
 	Logging LoggingConfig `json:"logging"`
 	Routes  []RoutesConfig
 }
 
-// Read config file.
+// ReadConfig reads config file and initialize local cache.
 func ReadConfig() error {
 	// Initialize local cache.
 	LocalCache = &ServiceData{

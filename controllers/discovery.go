@@ -6,6 +6,7 @@
 // Use of this source code is governed by a MIT license
 // that can be found in the LICENSE file.
 
+// Package controllers is used to handle request and response.
 package controllers
 
 import (
@@ -55,17 +56,17 @@ func DiscoveryService(ctx *arpc.Context) {
 	if _, ok := config.LocalCache.Infos[data.ServiceName]; !ok {
 		services.SendErrorResponse(ctx, response.BadRequestCode, response.BadRequestMessage, nil)
 		return
-	} else {
-		// Choose a service address by least connections.
-		for _, info := range config.LocalCache.Infos[data.ServiceName] {
-			if info.UsageCount < minn && info.ServiceVersion == data.Version {
-				minn = info.UsageCount
-				result = info
-			}
-		}
-		// Add used times.
-		result.UsageCount++
 	}
+
+	// Choose a service address by least connections.
+	for _, info := range config.LocalCache.Infos[data.ServiceName] {
+		if info.UsageCount < minn && info.ServiceVersion == data.Version {
+			minn = info.UsageCount
+			result = info
+		}
+	}
+	// Add used times.
+	result.UsageCount++
 
 	// Marshal response data.
 	bin, err := proto.Marshal(result)
